@@ -13,6 +13,7 @@ def poste():
 
         if math.isnan(float(i)):
             break
+
         numero = int(poste)
         numero_str = str(numero)
         coordenada_poste = planilha_df.loc[i, 'coordenadas']
@@ -32,6 +33,7 @@ def poste():
         pyautogui.moveTo(619, 390)
         pyautogui.click(619, 390)
         pyautogui.write('dd')
+
         pyautogui.press('enter')
         pyautogui.write('pcpb')
         pyautogui.press('enter')
@@ -212,9 +214,10 @@ def poste():
 
 def rede():
     print('Inserindo Rede')
-    pyautogui.moveTo(76, 264)
-    pyautogui.click(76, 264)
-    pyautogui.click(76, 264)
+    pyautogui.moveTo(80, 280)
+    pyautogui.click(80, 280)
+    pyautogui.click(80, 280)
+    pyautogui.click(80, 280)
     pyautogui.write(coord_aglutinada, 0.25)
     pyautogui.press('esc')
 
@@ -246,6 +249,15 @@ def cliente():
     pyautogui.press('tab')
     pyautogui.write(telefone_cliente)
     pyautogui.press('tab')
+    pyautogui.press('enter')
+    pyautogui.write('dd')
+    pyautogui.press('enter')
+    pyautogui.write('cliente2')
+    pyautogui.press('enter')
+    pyautogui.write(ponto_trafo)
+    pyautogui.press('enter')
+    pyautogui.press('enter')
+    pyautogui.press('enter')
     pyautogui.write(disj_cliente)
     pyautogui.press('tab')
     pyautogui.press('enter')
@@ -287,26 +299,29 @@ def prancha():
 
 #operação
 
-print('AUTOPRO - AUTOMATIZADOR DE DESENHO DE PROJETO')
+print('AUTOPRO - AUTOMATIZADOR DE DESENHOs DE PROJETOs')
 print()
 print()
 print('             Orientações:')
 print()
 print('1 - Deixe a tela do Autocado aberta e maximizada.')
 print()
-print('2 - Não faça nenhum intervenção durante o processo. Deixe o Robo trabalhar!')
+print('2 - Desative o CAPS LOCK do seu teclado.')
+print()
+print('3 - Não faça nenhum intervenção durante o processo. Deixe o Robo trabalhar!')
 print()
 print()
 print('Iniciando......')
 
-pyautogui.PAUSE = 1
+
+pyautogui.PAUSE = 1.25
 pyautogui.alert('Não use o computador enquanto o programa funciona!')
 
 notas_df = pd.read_excel('notas.xlsx')
 
 for i, notas in enumerate(notas_df['notas']):
     arquivo = notas_df.loc[i, 'notas']
-    planilha_df = pd.read_excel(f'{arquivo}.xlsx', sheet_name='DADOS')
+    planilha_df = pd.read_excel(f'{arquivo}.xlsm', sheet_name='DADOS')
 
     coord_aglutinada = planilha_df.loc[0, 'aglutinadas']
     coord_aglutinada_sem_inicial = planilha_df.loc[0, 'aglutinadas menos inicial']
