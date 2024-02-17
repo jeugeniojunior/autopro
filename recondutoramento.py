@@ -28,6 +28,11 @@ def poste():
         tipo_trafo = str(planilha_df.loc[0, 'trafo'])
         elo = str(planilha_df.loc[0, 'elo']).upper()
         elipse_chave = f'100A-1KA-{elo}'
+        poste_instalado = str(planilha_df.loc[i, 'poste instalado']).upper()
+        poste_existente = str(planilha_df.loc[i, 'poste existente']).upper()
+        poste_retirado = str(planilha_df.loc[i, 'poste retirado']).upper()
+
+#poste simbolo
 
         print(f'Inserindo Poste do poste {numero}')
         pyautogui.moveTo(619, 390)
@@ -42,6 +47,64 @@ def poste():
         pyautogui.press('enter')
         pyautogui.press('esc')
         time.sleep(1)
+
+#indicacao de poste instalado
+
+        print(f'Inserindo indicacao de poste instalado {numero}')
+        pyautogui.moveTo(619, 390)
+        pyautogui.click(619, 390)
+        pyautogui.write('dd')
+        pyautogui.press('enter')
+        pyautogui.write('pinst')
+        pyautogui.press('enter')
+        pyautogui.write(coordenada_estrutura)
+        pyautogui.press('enter')
+        pyautogui.press('enter')
+        pyautogui.press('enter')
+        pyautogui.write(f'{poste_instalado}')
+        pyautogui.press('tab')
+        pyautogui.press('enter')
+        pyautogui.press('esc')
+        time.sleep(1)
+
+# indicacao de poste retirado
+
+        print(f'Inserindo indicacao de poste retirado {numero}')
+        pyautogui.moveTo(619, 390)
+        pyautogui.click(619, 390)
+        pyautogui.write('dd')
+        pyautogui.press('enter')
+        pyautogui.write('pret')
+        pyautogui.press('enter')
+        pyautogui.write(coordenada_estrutura)
+        pyautogui.press('enter')
+        pyautogui.press('enter')
+        pyautogui.press('enter')
+        pyautogui.write(f'{poste_retirado}')
+        pyautogui.press('tab')
+        pyautogui.press('enter')
+        pyautogui.press('esc')
+        time.sleep(1)
+
+# indicacao de poste existente
+
+        print(f'Inserindo indicacao de poste existente {numero}')
+        pyautogui.moveTo(619, 390)
+        pyautogui.click(619, 390)
+        pyautogui.write('dd')
+        pyautogui.press('enter')
+        pyautogui.write('t')
+        pyautogui.press('enter')
+        pyautogui.write(coordenada_estrutura)
+        pyautogui.press('enter')
+        pyautogui.press('enter')
+        pyautogui.press('enter')
+        pyautogui.write(f'{poste_existente}')
+        pyautogui.press('tab')
+        pyautogui.press('enter')
+        pyautogui.press('esc')
+        time.sleep(1)
+
 
 #estrutura
 
@@ -70,7 +133,7 @@ def poste():
             pyautogui.click(619, 390)
             pyautogui.write('dd')
             pyautogui.press('enter')
-            pyautogui.write('atatprovp')
+            pyautogui.write('aterp')
             pyautogui.press('enter')
             pyautogui.write(coordenada_poste)
             pyautogui.press('enter')
