@@ -157,7 +157,7 @@ def poste():
         pyautogui.press('esc')
         time.sleep(1)
 
-# poste coordenada
+#poste coordenada
 
         print(f'Inserindo coordenada do poste {numero}')
         pyautogui.moveTo(619, 390)
@@ -273,7 +273,7 @@ def poste():
         time.sleep(1)
 
 #estai
-        print(f'Inserindo Numeração do poste {numero}')
+        print(f'Inserindo estai do poste {numero}')
         pyautogui.moveTo(545, 406)
         pyautogui.click(545, 406)
         pyautogui.write('dd')
@@ -382,10 +382,10 @@ for i, notas in enumerate(notas_df['notas']):
     data_projeto = str(planilha_df.loc[0, 'data proj'])
 
     print(f'Iniciando desenho da ns {arquivo}')
-    #poste()
-    #time.sleep(1)
-    #rede()
-    #time.sleep(1)
+    poste()
+    time.sleep(1)
+    rede()
+    time.sleep(1)
     prancha()
     print(f'Fim do desenho da ns {arquivo}')
 
