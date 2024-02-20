@@ -31,6 +31,7 @@ def poste():
         cabo_retirado = planilha_df.loc[0, 'cabo retirado']
         vao = str(planilha_df.loc[i, 'vao']).upper()
         qtd_estai = str(planilha_df.loc[i, 'qtd est']).upper()
+        bloco_poste = str(planilha_df.loc[i, 'bloco poste']).upper()
 
 #poste simbolo
 
@@ -40,7 +41,7 @@ def poste():
             pyautogui.click(619, 390)
             pyautogui.write('dd')
             pyautogui.press('enter')
-            pyautogui.write('pfpb')
+            pyautogui.write(f'{bloco_poste}')
             pyautogui.press('enter')
             pyautogui.write(coordenada_poste)
             pyautogui.press('enter')
@@ -56,7 +57,7 @@ def poste():
             pyautogui.click(619, 390)
             pyautogui.write('dd')
             pyautogui.press('enter')
-            pyautogui.write('pmeb')
+            pyautogui.write(f'{bloco_poste}')
             pyautogui.press('enter')
             pyautogui.write(coordenada_poste)
             pyautogui.press('enter')
