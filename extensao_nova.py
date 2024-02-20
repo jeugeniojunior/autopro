@@ -28,13 +28,16 @@ def poste():
         tipo_trafo = str(planilha_df.loc[0, 'trafo'])
         elo = str(planilha_df.loc[0, 'elo']).upper()
         elipse_chave = f'100A-1KA-{elo}'
+        bloco_poste = str(planilha_df.loc[i, 'bloco poste']).upper()
+
+#poste
 
         print(f'Inserindo Poste do poste {numero}')
         pyautogui.moveTo(619, 390)
         pyautogui.click(619, 390)
         pyautogui.write('dd')
         pyautogui.press('enter')
-        pyautogui.write('pdpb')
+        pyautogui.write(f'{bloco_poste}')
         pyautogui.press('enter')
         pyautogui.write(coordenada_poste)
         pyautogui.press('enter')
@@ -302,6 +305,7 @@ def prancha():
 #operação
 
 print('AUTOPRO - AUTOMATIZADOR DE DESENHOS DE PROJETOS')
+print('MODULO EXTENSÃO PELA ESTRADA')
 print()
 
 print()
