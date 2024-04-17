@@ -18,6 +18,8 @@ def poste():
         numero_str = str(numero)
         coordenada_poste = planilha_df.loc[i, 'coordenadas']
         coordenada_estrutura = planilha_df.loc[i, 'coor estrutura']
+        coordenada_numero = planilha_df.loc[i, 'coor numero']
+        coordenada_dc = planilha_df.loc[i, 'coor dc']
         estrutura = str(planilha_df.loc[i, 'estrutura']).upper()
         tipo_poste = planilha_df.loc[i, 'tipo poste']
         atprov = str(planilha_df.loc[i, 'atprov']).upper()
@@ -29,6 +31,8 @@ def poste():
         elo = str(planilha_df.loc[0, 'elo']).upper()
         elipse_chave = f'100A-1KA-{elo}'
         bloco_poste = str(planilha_df.loc[i, 'bloco poste']).upper()
+        esforco = str(planilha_df.loc[i, 'esforco']).upper()
+        resultante = str(planilha_df.loc[i, 'resultante']).upper()
 
 #poste
 
@@ -108,7 +112,7 @@ def poste():
             pyautogui.press('enter')
             pyautogui.write('dc9')
             pyautogui.press('enter')
-            pyautogui.write(coordenada_estrutura)
+            pyautogui.write(coordenada_dc)
             pyautogui.press('enter')
             pyautogui.press('enter')
             pyautogui.press('enter')
@@ -133,7 +137,7 @@ def poste():
             pyautogui.press('enter')
             pyautogui.write('dc13')
             pyautogui.press('enter')
-            pyautogui.write(coordenada_estrutura)
+            pyautogui.write(coordenada_dc)
             pyautogui.press('enter')
             pyautogui.press('enter')
             pyautogui.press('enter')
@@ -145,6 +149,25 @@ def poste():
             pyautogui.write(coordenada_poste)
             pyautogui.press('enter')
             pyautogui.press('enter')
+            pyautogui.press('enter')
+            pyautogui.press('esc')
+            time.sleep(1)
+
+# Esforco
+
+        if esforco == 'X':
+            print(f'Inserindo esforço do poste {numero}')
+            pyautogui.write('dd')
+            pyautogui.press('enter')
+            pyautogui.write('result')
+            pyautogui.press('enter')
+            pyautogui.write(coordenada_estrutura)
+            pyautogui.press('enter')
+            pyautogui.press('enter')
+            pyautogui.write(f'Rf = {resultante} daN')
+            pyautogui.press('tab')
+            pyautogui.write(f'Poste {numero}')
+            pyautogui.press('tab')
             pyautogui.press('enter')
             pyautogui.press('esc')
             time.sleep(1)
@@ -204,7 +227,7 @@ def poste():
         pyautogui.press('enter')
         pyautogui.write('num')
         pyautogui.press('enter')
-        pyautogui.write(coordenada_estrutura)
+        pyautogui.write(coordenada_numero)
         pyautogui.press('enter')
         pyautogui.press('enter')
         pyautogui.press('enter')
@@ -216,10 +239,11 @@ def poste():
 
 def rede():
     print('Inserindo Rede')
-    pyautogui.moveTo(80, 280)
-    pyautogui.click(80, 280)
-    pyautogui.click(80, 280)
-    pyautogui.click(80, 280)
+    pyautogui.moveTo(98, 280)
+    pyautogui.click(98, 280)
+    pyautogui.click(98, 280)
+    pyautogui.click(98, 280)
+    pyautogui.click(98, 280)
     pyautogui.write(coord_aglutinada, 0.25)
     pyautogui.press('esc')
 
