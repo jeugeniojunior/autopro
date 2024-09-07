@@ -5,7 +5,7 @@ import openpyxl
 
 
 
-def postes():
+def postes1():
     print('Inserindo Postes')
     pyautogui.moveTo(545, 406)
     pyautogui.click(545, 406)
@@ -34,7 +34,7 @@ def rede():
     pyautogui.moveTo(86, 283)
     pyautogui.click(86, 283)
     pyautogui.click(86, 283)
-    pyautogui.write(coord_aglutinada)
+    pyautogui.write(coord_aglutinada, 0.25)
     pyautogui.press('esc')
 
 def estrada():
@@ -225,7 +225,7 @@ for i, notas in enumerate(notas_df['notas']):
     coor_chave = str(planilha_df.loc[0, 'coord chave'])
     coor_elipse = str(planilha_df.loc[0, 'coord elipse'])
 
-    print(f'Inicio do {i+1} desenho')
+    print(f'Iniciando desenho da ns {arquivo}')
     postes()
     time.sleep(2)
     rede()
@@ -241,7 +241,7 @@ for i, notas in enumerate(notas_df['notas']):
     chave_repetidora()
     time.sleep(2)
     prancha()
-    print(f'Fim do {i+1} desenho')
+    print(f'Fim do desenho da ns {arquivo}')
 
 print('Fim do Processo')
 
